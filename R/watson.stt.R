@@ -8,7 +8,7 @@
 watson.stt.process <- function(filename) {
   print("Speech to text - processing WAV file that is passd to us ")
   print("Sending Test WAV file to Speech to Text service for processing... ")
-  data <- httr::POST(url="https://gateway-syd.watsonplatform.net/speech-to-text/api",
+  data <- httr::POST(url="https://gateway-syd.watsonplatform.net/speech-to-text/api/v1/recognize",
                authenticate(username_STT,password_STT),
                add_headers("Content-Type"="audio/wav"),
                body = (file = upload_file(filename))
