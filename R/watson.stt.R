@@ -8,7 +8,7 @@
 watson.stt.process <- function(filename) {
   print("Speech to text - processing WAV file that is passd to us ")
   print("Sending Test WAV file to Speech to Text service for processing... ")
-  data <- httr::POST(url="https://stream.watsonplatform.net/speech-to-text/api/v1/recognize",
+  data <- httr::POST(url="https://gateway-syd.watsonplatform.net/speech-to-text/api",
                authenticate(username_STT,password_STT),
                add_headers("Content-Type"="audio/wav"),
                body = (file = upload_file(filename))
@@ -38,7 +38,7 @@ watson.stt.process <- function(filename) {
 watson.stt.test <- function() {
   print("Speech to text Test using the speech_test.WAV Test file in the ")
   print("Sending Test WAV file to Speech to Text service for processing... ")
-  data <- httr::POST(url="https://stream.watsonplatform.net/speech-to-text/api/v1/recognize",
+  data <- httr::POST(url="https://gateway-syd.watsonplatform.net/speech-to-text/api",
                authenticate(username_STT,password_STT),
                add_headers("Content-Type"="audio/wav"),
                body = (file = upload_file("media/STT_speech_test.wav"))
